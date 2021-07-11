@@ -8,18 +8,18 @@ stores the MAC address.
 
 Signed-off-by: Tianling Shen <cnsztl@gmail.com>
 ---
- .../boot/dts/rockchip/rk3399-nanopi-r4s.dts    | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ .../boot/dts/rockchip/rk3399-nanopi-r4s.dts    | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
 --- a/arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dts
-@@ -68,6 +68,24 @@
+@@ -68,6 +68,26 @@
  	status = "disabled";
  };
  
 +&gmac {
 +	nvmem-cells = <&mac_address>;
-+	nvmem-cells-names = "mac-address";
++	nvmem-cell-names = "mac-address";
 +};
 +
 +&i2c2 {
@@ -28,8 +28,10 @@ Signed-off-by: Tianling Shen <cnsztl@gmail.com>
 +		reg = <0x51>;
 +		pagesize = <16>;
 +		size = <256>;
++    #address-cells = <1>;
++		#size-cells = <1>;
 +
-+		mac_address: mac-address@fa {
++		mac_address: mac-address@fa { 
 +			reg = <0xfa 0x06>;
 +		};
 +	};
