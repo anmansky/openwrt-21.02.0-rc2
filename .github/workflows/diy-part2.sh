@@ -7,8 +7,8 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #============================================================
-
+sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 # Modify default IP
 sed -i 's/10.0.0.1/10.0.10.100/g' package/base-files/files/bin/config_generate
 # add theme atmaterial
-git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
+#git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
